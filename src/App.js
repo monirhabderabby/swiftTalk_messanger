@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { Inbox } from "./Components/Inbox/Inbox";
+import { MessageBox } from "./Components/Message/MessageBox";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="py-[35px] px-[32px] bg-[#222222] min-h-screen">
+            <Routes>
+                <Route path="/" element={<Inbox />}>
+                    <Route path=":id" element={<MessageBox />} />
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
