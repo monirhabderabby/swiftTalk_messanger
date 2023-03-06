@@ -1,4 +1,5 @@
 import React from "react";
+import { Chat } from "../Shared/Components/Chat";
 
 export const MessagesContainer = () => {
     const data = [
@@ -42,13 +43,7 @@ export const MessagesContainer = () => {
     return (
         <div className="flex-1 flex flex-col gap-y-[29px] mt-[30px]">
             {data?.map(message => {
-                return (
-                    <div className={`flex ${message?.sender ? "justify-end" : "justify-start"} rounded-[10px]`}>
-                        <span className={` py-[13px] px-[50px] ${message?.sender ? "bg-blue" : " bg-[#1B1B1B]"} text-white rounded-[10px]`}>
-                            {message?.text}
-                        </span>
-                    </div>
-                );
+                return <Chat key={message?.id} message={message} />;
             })}
         </div>
     );
